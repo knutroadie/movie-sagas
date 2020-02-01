@@ -21,10 +21,10 @@ class Edit extends Component {
             movie: {
                 ...this.state.movie,
                 [propertyName]: event.target.value
-              }
+            }
         })
     }
-    
+
     // dispatches state to redux axios put request
     handleClick = () => {
         console.log('clicking a button', this.state.movie);
