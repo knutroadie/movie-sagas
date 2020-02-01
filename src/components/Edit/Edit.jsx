@@ -13,7 +13,7 @@ class Edit extends Component {
         }
     }
 
-    handleChange = (event) => {
+    handleChange = (event, propertyName) => {
         console.log('typing text', this.state.movie);
         this.setState({
             movie: {
@@ -36,9 +36,9 @@ class Edit extends Component {
         return (
             <div className="App">
                 <p>edit page</p>
-                <input type="text" placeholder="title" onChange={(event) => this.handleChange}></input>
-                <input type="text" placeholder="description" onChange={(event) => this.handleChange}></input>
-                <input type="text" placeholder="genre" onChange={(event) => this.handleChange}></input>
+                <input type="text" placeholder="title" value={this.state.movie.title} onChange={(event) => this.handleChange(event, 'title')}></input>
+                <input type="text" placeholder="description" value={this.state.movie.description} onChange={(event) => this.handleChange(event, 'description')}></input>
+                <input type="text" placeholder="genre" value={this.state.movie.genre} onChange={(event) => this.handleChange(event, 'genre')}></input>
                 <button onClick={this.handleClick}>submit changes</button>
             </div>
         );
