@@ -10,12 +10,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <p>app.js</p>
+        <p>movie list project</p>
         {/* routes */}
         {/* movielist */}
         <MovieList />
-        <Details />
-        <Edit />
+        {/* <Details /> */}
+        {/* <Edit /> */}
       </div>
     );
   }

@@ -16,14 +16,25 @@ class MovieList extends Component {
             type: 'GET_MOVIES'
         })
     }
+
+    seeDetails = (event, id) => {
+        console.log('looking for details on movie:', id);
+        this.props.dispatch({
+            type: 'EDIT_MOVIE',
+            payload: id
+        }) 
+    }
+
     // Renders the entire app on the DOM
     render() {
         return (
             <div className="App">
-                <p>movie list page</p>
                 <div>
                     {this.props.reduxState.movies.map((movie, id) =>
-                        <div key={id}><img src={movie.poster}/>{movie.description}{movie.genres}</div>
+                        <div key={id} onClick={(event) => this.seeDetails(event, {id})}>
+                            <img alt={id} src={movie.poster} />
+                            <p>{movie.description}{movie.genres}</p>
+                        </div>
                     )}
                 </div>
                 {/* map over the movie list array in redux */}
