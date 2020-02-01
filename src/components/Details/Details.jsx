@@ -9,6 +9,9 @@ class Details extends Component {
         return (
             <div className="App">
                 <p>details page</p>
+                <p>image</p>
+                <p>genre</p>
+                <p>full summary</p>
             </div>
         );
     }

@@ -11,6 +11,7 @@ class MovieList extends Component {
 
     getMovies = () => {
         console.log('refreshing movie list');
+        // axios get request to redux
         
     }
     // Renders the entire app on the DOM
@@ -18,6 +19,9 @@ class MovieList extends Component {
         return (
             <div className="App">
                 <p>movie list page</p>
+                {/* map over the movie list array in redux */}
+                {/* append each movie with an edit button */}
+                {/* each button is a link to the details page */}
             </div>
         );
     }
