@@ -11,6 +11,10 @@ CREATE TABLE "genres" (
   "name" VARCHAR(80) NOT NULL
 );
 
+CREATE TABLE "movie_genres" (
+  "id" SERIAL PRIMARY KEY,
+  "genre" VARCHAR(80) NOT NULL
+);
 
 -- CREATE JUNCTION TABLE
 -- You will need to create the junction table that stores the relationships between "movies" and "genres"

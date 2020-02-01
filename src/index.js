@@ -12,7 +12,7 @@ import createSagaMiddleware from 'redux-saga';
 
 // Create the rootSaga generator function
 function* rootSaga() {
-
+    //GET_MOVIES
 }
 
 // Create sagaMiddleware
