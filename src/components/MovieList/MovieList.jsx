@@ -22,6 +22,8 @@ class MovieList extends Component {
                 {/* map over the movie list array in redux */}
                 {/* append each movie with an edit button */}
                 {/* each button is a link to the details page */}
+                {/* all wrapped in a Router that will append a Link to edit.js */}
+                {/* that will pass down dynamic redux data on props */}
             </div>
         );
     }

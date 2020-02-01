@@ -11,9 +11,10 @@ CREATE TABLE "genres" (
   "name" VARCHAR(80) NOT NULL
 );
 
-CREATE TABLE "movie_genres" (
+CREATE TABLE "movie_genre" (
   "id" SERIAL PRIMARY KEY,
-  "genre" VARCHAR(80) NOT NULL
+  "genre_id" INT REFERENCES "genres",
+  "movie_id" INT REFERENCES "movies"
 );
 
 -- CREATE JUNCTION TABLE
