@@ -16,7 +16,18 @@ app.get('/movies', (req, res) => {
     pool.query(queryText).then(result => {
         res.send(result.rows)
     }).catch(error => {
-        console.log('error in server.js router.get', error);
+        console.log('error in server.js movies router.get', error);
+        res.sendStatus(500);
+    });
+});
+
+app.get('/genres', (req, res) => {
+    let queryText = 'SELECT * FROM "genres"';
+    console.log(queryText);    
+    pool.query(queryText).then(result => {
+        res.send(result.rows)
+    }).catch(error => {
+        console.log('error in server.js genres router.get', error);
         res.sendStatus(500);
     });
 });
