@@ -21,13 +21,13 @@ app.get('/movies', (req, res) => {
     });
 });
 
-app.get('/genres', (req, res) => {
-    let queryText = 'SELECT * FROM "genres";';
+app.get('/movie_genre', (req, res) => {
+    let queryText = 'SELECT * FROM "movie_genre";';
     console.log(queryText);    
     pool.query(queryText).then(result => {
         res.send(result.rows)
     }).catch(error => {
-        console.log('error in server.js genres router.get', error);
+        console.log('error in server.js movie_genre router.get', error);
         res.sendStatus(500);
     });
 });

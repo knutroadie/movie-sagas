@@ -32,8 +32,8 @@ function* getMovies() {
 // axios put yield generator
 function* getGenres() {
     try {
-        const response = yield axios.get('/genres');
-        yield put({ type: 'SET_GENRES', payload: response.data});
+        const response = yield axios.get('/movie_genre');
+        yield put({ type: 'SET_GENRES', payload: response.data });
     } catch (error) {
         console.log('error getting genres', error);
         alert('could not get data at this time. try again later');
@@ -66,8 +66,8 @@ const genres = (state = [], action) => {
 const seeMovie = (state = {}, action) => {
     if (action.type === 'SEE_MOVIE') {
         return action.payload
-      }
-      return state;    
+    }
+    return state;
 }
 
 // const editMovie = (state, action) => {

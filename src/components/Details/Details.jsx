@@ -5,10 +5,6 @@ import { connect } from 'react-redux';
 
 class Details extends Component {
 
-    componentDidMount() {
-        this.getGenres();
-    }
-
     getGenres = () => {
         console.log('getting genres');
         // axios get request to redux

@@ -7,6 +7,7 @@ class MovieList extends Component {
 
     componentDidMount() {
         this.getMovies();
+        this.getGenres();
     }
 
     getMovies = () => {
@@ -14,6 +15,14 @@ class MovieList extends Component {
         // axios get request to redux
         this.props.dispatch({
             type: 'GET_MOVIES'
+        })
+    }
+
+    getGenres = () => {
+        console.log('getting genres');
+        // axios get request to redux
+        this.props.dispatch({
+            type: 'GET_GENRES'
         })
     }
 
