@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 class Details extends Component {
 
     editMovie = () => {
-        console.log('clicking editMovie');
+        console.log('clicking edit');
     }
 
     cancelEdit = () => {
@@ -26,12 +26,11 @@ class Details extends Component {
                         </div>
                     </Route>
                 )} */}
-                <p>details page</p>
-                <p>{this.props.reduxState.seeMovie.title}</p>
-                <p>{this.props.reduxState.seeMovie.description}</p>
-                <p>{this.props.reduxState.seeMovie.genres}</p>
-                <button>edit</button>
-                <button>cancel</button>
+                <h3>{this.props.reduxState.seeMovie.movie.movie.title}</h3>
+                <p>{this.props.reduxState.seeMovie.movie.movie.description}</p>
+                <p>{this.props.reduxState.seeMovie.movie.movie.genres}</p>
+                <button onClick={this.editMovie}>edit</button>
+                <button onClick={this.cancelEdit}>cancel</button>
             </div>
         );
     }

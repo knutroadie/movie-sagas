@@ -61,12 +61,12 @@ const seeMovie = (state = {}, action) => {
       return state;    
 }
 
-const editMovie = (state, action) => {
-    if (action.type === 'EDIT_MOVIE') {
-        return action.payload
-    }
-    return state
-}
+// const editMovie = (state, action) => {
+//     if (action.type === 'EDIT_MOVIE') {
+//         return action.payload
+//     }
+//     return state
+// }
 
 // Create one store that all components can use
 const storeInstance = createStore(
@@ -74,7 +74,7 @@ const storeInstance = createStore(
         movies,
         genres,
         seeMovie,
-        editMovie
+        // editMovie
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
