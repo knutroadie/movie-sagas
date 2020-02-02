@@ -5,6 +5,18 @@ import { connect } from 'react-redux';
 
 class Details extends Component {
 
+    componentDidMount() {
+        this.getGenres();
+    }
+
+    getGenres = () => {
+        console.log('getting genres');
+        // axios get request to redux
+        this.props.dispatch({
+            type: 'GET_GENRES'
+        })
+    }
+
     editMovie = () => {
         console.log('clicking edit');
         this.props.history.push('/edit')
@@ -16,18 +28,8 @@ class Details extends Component {
     }
     // Renders the entire app on the DOM
     render() {
-        // if (t)
         return (
             <div className="App">
-                {/* {this.props.reduxState.seeMovie.map((movie, id) =>
-                    <Route>
-                        <div key={id} onClick={(event) => this.movie(event, { id })}>
-                            <img alt={id} src={movie.poster} />
-                            <h3>{movie.title}</h3>
-                            <p>{movie.description}</p>
-                        </div>
-                    </Route>
-                )} */}
                 <h3>{this.props.reduxState.seeMovie.movie.movie.title}</h3>
                 <p>{this.props.reduxState.seeMovie.movie.movie.description}</p>
                 <p>{this.props.reduxState.seeMovie.movie.movie.genres}</p>

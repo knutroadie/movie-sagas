@@ -22,7 +22,7 @@ app.get('/movies', (req, res) => {
 });
 
 app.get('/genres', (req, res) => {
-    let queryText = 'SELECT * FROM "genres"';
+    let queryText = 'SELECT * FROM "genres";';
     console.log(queryText);    
     pool.query(queryText).then(result => {
         res.send(result.rows)
