@@ -7,10 +7,12 @@ class Details extends Component {
 
     editMovie = () => {
         console.log('clicking edit');
+        this.props.history.push('/edit')
     }
 
     cancelEdit = () => {
         console.log('clicking cancel');
+        this.props.history.push('/')
     }
     // Renders the entire app on the DOM
     render() {
@@ -29,8 +31,8 @@ class Details extends Component {
                 <h3>{this.props.reduxState.seeMovie.movie.movie.title}</h3>
                 <p>{this.props.reduxState.seeMovie.movie.movie.description}</p>
                 <p>{this.props.reduxState.seeMovie.movie.movie.genres}</p>
-                <button onClick={this.editMovie}>edit</button>
-                <button onClick={this.cancelEdit}>cancel</button>
+                <button onClick={this.editMovie}>edit details</button>
+                <button onClick={this.cancelEdit}>back to list</button>
             </div>
         );
     }

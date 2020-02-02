@@ -9,8 +9,7 @@ class Edit extends Component {
     state = {
         movie: {
             title: '',
-            description: '',
-            // genre: ''
+            description: ''
         }
     }
 
@@ -32,6 +31,11 @@ class Edit extends Component {
             type: 'EDIT_MOVIE',
             payload: this.state.movie
         });
+        this.props.history.push('/details');
+    }
+
+    handleCancel = () => {
+        this.props.history.push('/details');
     }
 
     // renders the entire app on the DOM
@@ -43,8 +47,8 @@ class Edit extends Component {
                 <input type="text" placeholder="title" value={this.state.movie.title} onChange={(event) => this.handleChange(event, 'title')}></input>
                 <input type="text" placeholder="description" value={this.state.movie.description} onChange={(event) => this.handleChange(event, 'description')}></input>
                 {/* <input type="text" placeholder="genre" value={this.state.movie.genre} onChange={(event) => this.handleChange(event, 'genre')}></input> */}
-                <button onClick={this.handleClick} Link to="/details">submit changes</button>
-                <button>cancel</button>
+                <button onClick={this.handleClick}>submit changes</button>
+                <button onClick={this.handleCancel}>cancel</button>
             </div>
         );
     }
