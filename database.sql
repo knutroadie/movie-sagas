@@ -62,24 +62,4 @@ VALUES
 ('Superhero');
 
 -- assigned genres
-INSERT INTO "public"."movie_genre"("id", "genre_id", "movie_id") VALUES(1, 1, 1), (2, 2, 1), (3, 11, 1), (4, 2, 2), (5, 13, 3) RETURNING "id", "genre_id", "movie_id";
-INSERT INTO "public"."movie_genre"("id", "genre_id", "movie_id") VALUES(6, 2, 4) RETURNING "id", "genre_id", "movie_id";
-INSERT INTO "public"."movie_genre"("id", "genre_id", "movie_id") VALUES(7, 6, 5) RETURNING "id", "genre_id", "movie_id";
-INSERT INTO "public"."movie_genre"("id", "genre_id", "movie_id") VALUES(8, 1, 6) RETURNING "id", "genre_id", "movie_id";
-INSERT INTO "public"."movie_genre"("id", "genre_id", "movie_id") VALUES(9, 8, 6) RETURNING "id", "genre_id", "movie_id";
-INSERT INTO "public"."movie_genre"("id", "genre_id", "movie_id") VALUES(10, 1, 7) RETURNING "id", "genre_id", "movie_id";
-INSERT INTO "public"."movie_genre"("id", "genre_id", "movie_id") VALUES(11, 6, 7) RETURNING "id", "genre_id", "movie_id";
-INSERT INTO "public"."movie_genre"("id", "genre_id", "movie_id") VALUES(12, 1, 8) RETURNING "id", "genre_id", "movie_id";
-INSERT INTO "public"."movie_genre"("id", "genre_id", "movie_id") VALUES(13, 2, 8) RETURNING "id", "genre_id", "movie_id";
-INSERT INTO "public"."movie_genre"("id", "genre_id", "movie_id") VALUES(14, 6, 8) RETURNING "id", "genre_id", "movie_id";
-INSERT INTO "public"."movie_genre"("id", "genre_id", "movie_id") VALUES(15, 8, 8) RETURNING "id", "genre_id", "movie_id";
-INSERT INTO "public"."movie_genre"("id", "genre_id", "movie_id") VALUES(16, 2, 9) RETURNING "id", "genre_id", "movie_id";
-INSERT INTO "public"."movie_genre"("id", "genre_id", "movie_id") VALUES(17, 12, 10) RETURNING "id", "genre_id", "movie_id";
-INSERT INTO "public"."movie_genre"("id", "genre_id", "movie_id") VALUES(18, 5, 11) RETURNING "id", "genre_id", "movie_id";
-INSERT INTO "public"."movie_genre"("id", "genre_id", "movie_id") VALUES(19, 11, 11) RETURNING "id", "genre_id", "movie_id";
-INSERT INTO "public"."movie_genre"("id", "genre_id", "movie_id") VALUES(20, 3, 12) RETURNING "id", "genre_id", "movie_id";
-INSERT INTO "public"."movie_genre"("id", "genre_id", "movie_id") VALUES(21, 6, 12) RETURNING "id", "genre_id", "movie_id";
-INSERT INTO "public"."movie_genre"("id", "genre_id", "movie_id") VALUES(22, 5, 13) RETURNING "id", "genre_id", "movie_id";
-INSERT INTO "public"."movie_genre"("id", "genre_id", "movie_id") VALUES(23, 6, 13) RETURNING "id", "genre_id", "movie_id";
-INSERT INTO "public"."movie_genre"("id", "genre_id", "movie_id") VALUES(24, 2, 14) RETURNING "id", "genre_id", "movie_id";
-INSERT INTO "public"."movie_genre"("id", "genre_id", "movie_id") VALUES(25, 6, 14) RETURNING "id", "genre_id", "movie_id";
+INSERT INTO "public"."movie_genre"("id", "genre_id", "movie_id") VALUES(1, 1, 1), (2, 2, 1), (3, 11, 1), (4, 2, 2), (5, 13, 3), (6, 2, 4), (7, 6, 5), (8, 1, 6), (9, 8, 6), (10, 1, 7), (11, 6, 7), (12, 1, 8), (13, 2, 8), (14, 6, 8), (15, 8, 8), (16, 2, 9), (17, 12, 10), (18, 5, 11), (19, 11, 11), (20, 3, 12), (21, 6, 12), (22, 5, 13), (23, 6, 13), (24, 2, 14), (25, 6, 14)

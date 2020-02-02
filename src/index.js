@@ -33,7 +33,7 @@ function* getMovies() {
 // axios put yield generator
 function* getGenres() {
     try {
-        const response = yield axios.get('/movie_genre');
+        const response = yield axios.get('/genres');
         yield put({ type: 'SET_GENRES', payload: response.data });
     } catch (error) {
         console.log('error getting genres', error);
@@ -74,10 +74,10 @@ const seeMovie = (state = {}, action) => {
 
 // generator to edit movie in the database
 function* editMovie(action) {
-    console.log(action.payload);
+    console.log(action.payload.id);
     try {
         yield axios.put(`/movies/${action.payload.id}`, action.payload);
-        yield put({ type: 'EDIT_MOVIE' });
+        yield put({ type: 'GET_MOVIES' });
     } catch (error) {
         console.log('Error in editMovie generator', error);
         alert('Could not update data at this time. Try again later');

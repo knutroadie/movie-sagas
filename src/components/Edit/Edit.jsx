@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../App/App.css';
-// import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class Edit extends Component {

@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 5000;
-const router = express.Router();
 const pool = require('./modules/pool');
 
 /** ---------- MIDDLEWARE ---------- **/
@@ -21,8 +20,8 @@ app.get('/movies', (req, res) => {
     });
 });
 
-app.get('/movie_genre', (req, res) => {
-    let queryText = 'SELECT * FROM "movie_genre";';
+app.get('/genres', (req, res) => {
+    let queryText = 'SELECT "genres".name FROM "movie_genre" JOIN "movie_genre" ON "genre".id = "movie_genre".id WHERE "movie_genre".id = 7;';
     console.log(queryText);
     pool.query(queryText).then(result => {
         res.send(result.rows)
@@ -37,7 +36,7 @@ app.put('/movies/:id', (req, res) => {
     let movieId = req.params.id;
     let title = req.params.title;
     let description = req.params.description;
-    const sqlText = `UPDATE "movies" SET "title"=$1 "description"=$2 WHERE "movies".id = $3;`;
+    const sqlText = `UPDATE "movies" SET "title"=$1, "description"=$2 WHERE "movies".id = $3;`;
     const values = [movieId, title, description];
     pool.query(sqlText, values)
         .then((response) => {

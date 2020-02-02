@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import '../App/App.css';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class Details extends Component {
 
     editMovie = () => {
-        console.log('clicking edit');
+        this.props.dispatch({
+            type: 'EDIT_MOVIE',
+            payload: this.props.reduxState.seeMovie.movie.movie
+        });
         this.props.history.push('/edit')
     }
 
@@ -14,14 +16,15 @@ class Details extends Component {
         console.log('clicking cancel');
         this.props.history.push('/')
     }
-    
+
     // Renders the entire app on the DOM
     render() {
         return (
             <div className="App">
                 <h3>{this.props.reduxState.seeMovie.movie.movie.title}</h3>
                 <p>{this.props.reduxState.seeMovie.movie.movie.description}</p>
-                <p>{this.props.reduxState.seeMovie.movie.movie.genres}</p>
+                {/* this should have another map of a film's genres, stored in redux store */}
+                {/* <p>{this.props.reduxState.seeMovie.movie.movie.genres}</p> */}
                 <button onClick={this.editMovie}>edit details</button>
                 <button onClick={this.cancelEdit}>back to list</button>
             </div>
