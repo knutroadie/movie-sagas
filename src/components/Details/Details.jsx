@@ -5,14 +5,6 @@ import { connect } from 'react-redux';
 
 class Details extends Component {
 
-    getGenres = () => {
-        console.log('getting genres');
-        // axios get request to redux
-        this.props.dispatch({
-            type: 'GET_GENRES'
-        })
-    }
-
     editMovie = () => {
         console.log('clicking edit');
         this.props.history.push('/edit')
@@ -22,6 +14,7 @@ class Details extends Component {
         console.log('clicking cancel');
         this.props.history.push('/')
     }
+    
     // Renders the entire app on the DOM
     render() {
         return (

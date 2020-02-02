@@ -12,7 +12,7 @@ app.use(express.static('build'));
 /** ---------- ROUTES ---------- **/
 app.get('/movies', (req, res) => {
     let queryText = 'SELECT * FROM "movies" ORDER BY "title";';
-    console.log(queryText);    
+    console.log(queryText);
     pool.query(queryText).then(result => {
         res.send(result.rows)
     }).catch(error => {
@@ -23,7 +23,7 @@ app.get('/movies', (req, res) => {
 
 app.get('/movie_genre', (req, res) => {
     let queryText = 'SELECT * FROM "movie_genre";';
-    console.log(queryText);    
+    console.log(queryText);
     pool.query(queryText).then(result => {
         res.send(result.rows)
     }).catch(error => {
@@ -33,6 +33,21 @@ app.get('/movie_genre', (req, res) => {
 });
 
 // app.put() to update movie data on the database
+app.put('/movies/:id', (req, res) => {
+    let movieId = req.params.id;
+    let title = req.params.title;
+    let description = req.params.description;
+    const sqlText = `UPDATE "movies" SET "title"=$1 "description"=$2 WHERE "movies".id = $3;`;
+    const values = [movieId, title, description];
+    pool.query(sqlText, values)
+        .then((response) => {
+            res.sendStatus(200);
+        })
+        .catch((error) => {
+            console.log(`Error updating movie, server.js PUT`, error);
+            res.sendStatus(500);
+        })
+})
 
 /** ---------- START SERVER ---------- **/
 app.listen(port, function () {

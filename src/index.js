@@ -17,6 +17,7 @@ function* rootSaga() {
     //GET_MOVIES
     yield takeEvery('GET_MOVIES', getMovies);
     yield takeEvery('GET_GENRES', getGenres);
+    yield takeEvery('EDIT_MOVIE', editMovie)
 }
 
 function* getMovies() {
@@ -39,6 +40,7 @@ function* getGenres() {
         alert('could not get data at this time. try again later');
     }
 }
+
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
@@ -70,12 +72,17 @@ const seeMovie = (state = {}, action) => {
     return state;
 }
 
-// const editMovie = (state, action) => {
-//     if (action.type === 'EDIT_MOVIE') {
-//         return action.payload
-//     }
-//     return state
-// }
+// generator to edit movie in the database
+function* editMovie(action) {
+    console.log(action.payload);
+    try {
+        yield axios.put(`/movies/${action.payload.id}`, action.payload);
+        yield put({ type: 'EDIT_MOVIE' });
+    } catch (error) {
+        console.log('Error in editMovie generator', error);
+        alert('Could not update data at this time. Try again later');
+    }
+}
 
 // Create one store that all components can use
 const storeInstance = createStore(
@@ -83,7 +90,7 @@ const storeInstance = createStore(
         movies,
         genres,
         seeMovie,
-        // editMovie
+        editMovie
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
