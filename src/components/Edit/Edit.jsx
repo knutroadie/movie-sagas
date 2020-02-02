@@ -10,7 +10,7 @@ class Edit extends Component {
         movie: {
             title: '',
             description: '',
-            genre: ''
+            // genre: ''
         }
     }
 
@@ -42,8 +42,9 @@ class Edit extends Component {
                 {/* append the attched image here as well? */}
                 <input type="text" placeholder="title" value={this.state.movie.title} onChange={(event) => this.handleChange(event, 'title')}></input>
                 <input type="text" placeholder="description" value={this.state.movie.description} onChange={(event) => this.handleChange(event, 'description')}></input>
-                <input type="text" placeholder="genre" value={this.state.movie.genre} onChange={(event) => this.handleChange(event, 'genre')}></input>
-                <button onClick={this.handleClick}>submit changes</button>
+                {/* <input type="text" placeholder="genre" value={this.state.movie.genre} onChange={(event) => this.handleChange(event, 'genre')}></input> */}
+                <button onClick={this.handleClick} Link to="/details">submit changes</button>
+                <button>cancel</button>
             </div>
         );
     }

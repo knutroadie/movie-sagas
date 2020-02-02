@@ -21,9 +21,7 @@ app.get('/movies', (req, res) => {
     });
 });
 
-// router.get('/movies', (req, res) => {
-//     res.send(movies);
-// });
+// app.put() to update movie data on the database
 
 /** ---------- START SERVER ---------- **/
 app.listen(port, function () {

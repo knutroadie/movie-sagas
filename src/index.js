@@ -28,6 +28,8 @@ function* getMovies() {
     }
 }
 
+// axios put yield generator
+
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
@@ -52,11 +54,18 @@ const genres = (state = [], action) => {
 }
 
 // save updates on redux
-const editMovie = (state = {}, action) => {
-    if (action.type === 'EDIT_MOVIE') {
+const seeMovie = (state = {}, action) => {
+    if (action.type === 'SEE_MOVIE') {
         return action.payload
       }
       return state;    
+}
+
+const editMovie = (state, action) => {
+    if (action.type === 'EDIT_MOVIE') {
+        return action.payload
+    }
+    return state
 }
 
 // Create one store that all components can use
@@ -64,6 +73,7 @@ const storeInstance = createStore(
     combineReducers({
         movies,
         genres,
+        seeMovie,
         editMovie
     }),
     // Add sagaMiddleware to our store
