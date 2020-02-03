@@ -6,7 +6,7 @@ class MovieList extends Component {
 
     componentDidMount() {
         this.getMovies();
-        // this.getGenres();
+        this.getGenres();
     }
 
     getMovies = () => {
@@ -17,13 +17,13 @@ class MovieList extends Component {
         })
     }
 
-    // getGenres = () => {
-    //     console.log('getting genres');
-    //     // axios get request to redux
-    //     this.props.dispatch({
-    //         type: 'GET_GENRES'
-    //     })
-    // }
+    getGenres = () => {
+        console.log('getting genres');
+        // axios get request to redux
+        this.props.dispatch({
+            type: 'GET_GENRES'
+        })
+    }
 
     seeDetails = (event, movie) => {
         console.log('looking for details on movie:', movie);

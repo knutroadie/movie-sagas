@@ -20,8 +20,8 @@ app.get('/movies', (req, res) => {
     });
 });
 
+// app.get for junction table genres
 app.get('/genres', (req, res) => {
-    // let queryText = 'SELECT "genres".name FROM "movie_genre" JOIN "movie_genre" ON "genre".id = "movie_genre".id WHERE "movie_genre".id = 7;';
     let queryText = 'SELECT "genres".name FROM "genres" JOIN "movie_genre" ON "genres"."id"="movie_genre"."genre_id" JOIN "movies" ON "movies"."id" = "movie_genre"."movie_id";';
     console.log(queryText);
     pool.query(queryText).then(result => {
