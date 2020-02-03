@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 class Details extends Component {
 
     componentDidMount() {
-        // this.getMovies();
         this.getGenres(this.props.reduxState.seeMovie.movie.movie.id);
     }
 

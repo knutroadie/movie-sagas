@@ -20,6 +20,9 @@ function* rootSaga() {
     yield takeEvery('EDIT_MOVIE', editMovie)
 }
 
+// Create sagaMiddleware
+const sagaMiddleware = createSagaMiddleware();
+
 function* getMovies() {
     try {
         const response = yield axios.get('/movies');
@@ -29,9 +32,6 @@ function* getMovies() {
         alert('could not get data at this time. try again later');
     }
 }
-
-// Create sagaMiddleware
-const sagaMiddleware = createSagaMiddleware();
 
 // Used to store movies returned from the server
 const movies = (state = [], action) => {
@@ -90,7 +90,7 @@ const storeInstance = createStore(
         movies,
         genres,
         seeMovie,
-        editMovie
+        // editMovie
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
