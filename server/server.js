@@ -24,7 +24,7 @@ app.get('/movies', (req, res) => {
 app.get('/genres', (req, res) => {
     console.log(req.query.id);
     let thisMovie = (req.query.id)
-    let queryText = `SELECT "movies".title, "genres".name from "movies"
+    let queryText = `SELECT "genres".name from "movies"
     JOIN "movie_genre" on "movies".id = "movie_genre".movie_id
     JOIN "genres" on "movie_genre".genre_id = "genres".id
     WHERE "movies".id = $1;`
