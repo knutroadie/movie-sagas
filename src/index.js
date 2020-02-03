@@ -44,10 +44,10 @@ const movies = (state = [], action) => {
 }
 
 // axios put yield generator
-function* getGenres() {
+function* getGenres(action) {
     try {
-        const response = yield axios.get('/genres');
-        yield put({ type: 'SET_GENRES', payload: response.data });
+        const response = yield axios.get(`/genres/?id=${action.payload.id}`, );
+        yield put({ type: 'SET_GENRES', payload: {id: response.data} });
     } catch (error) {
         console.log('error getting genres', error);
         alert('could not get data at this time. try again later');

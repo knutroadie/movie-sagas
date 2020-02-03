@@ -5,11 +5,11 @@ import { connect } from 'react-redux';
 class Details extends Component {
 
     componentDidMount() {
-        this.getGenres(this.props.reduxState.seeMovie.movie.movie.id);
+        this.getGenres(this.props.reduxState.seeMovie.movie.movie);
     }
 
     getGenres = (id) => {
-        console.log('getting genres');
+        console.log('getting genres', id);
         // axios get request to redux
         this.props.dispatch({
             type: 'GET_GENRES',

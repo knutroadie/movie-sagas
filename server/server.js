@@ -7,11 +7,11 @@ const pool = require('./modules/pool');
 /** ---------- MIDDLEWARE ---------- **/
 app.use(bodyParser.json()); // needed for angular requests
 app.use(express.static('build'));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 /** ---------- ROUTES ---------- **/
 app.get('/movies', (req, res) => {
     let queryText = 'SELECT * FROM "movies" ORDER BY "title";';
-    console.log(queryText);
     pool.query(queryText).then(result => {
         res.send(result.rows)
     }).catch(error => {
@@ -22,10 +22,18 @@ app.get('/movies', (req, res) => {
 
 // app.get for junction table genres
 app.get('/genres', (req, res) => {
-    let thisMovie = (req.body.id)
-    let queryText = `SELECT "genres".name FROM "genres" JOIN "movie_genre" ON "genres"."id"="movie_genre"."genre_id" JOIN "movies" ON "movies"."id" = "movie_genre"."movie_id" WHERE "movie".id = ${thisMovie};`;
-    console.log(queryText);
-    pool.query(queryText).then(result => {
+    console.log(req.query.id);
+    let thisMovie = (req.query.id)
+    let queryText = `SELECT "movies".title, "genres".name from "movies"
+    JOIN "movie_genre" on "movies".id = "movie_genre".movie_id
+    JOIN "genres" on "movie_genre".genre_id = "genres".id
+    WHERE "movies".id = $1;`
+    
+    // `SELECT "genres".name, FROM "genres"
+    // JOIN "movie_genre" ON "genres"."id"="movie_genre"."genre_id"
+    // JOIN "movies" ON "movies"."id" = "movie_genre"."movie_id"
+    // WHERE "movie".id = $1;`;
+    pool.query(queryText, [thisMovie]).then(result => {
         res.send(result.rows)
     }).catch(error => {
         console.log('error in server.js movie_genre router.get', error);
