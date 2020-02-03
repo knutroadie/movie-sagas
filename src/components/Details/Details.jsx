@@ -4,6 +4,21 @@ import { connect } from 'react-redux';
 
 class Details extends Component {
 
+    componentDidMount() {
+        // this.getMovies();
+        this.getGenres(this.props.reduxState.seeMovie.movie.movie.id);
+    }
+
+    getGenres = (id) => {
+        console.log('getting genres');
+        // axios get request to redux
+        this.props.dispatch({
+            type: 'GET_GENRES',
+            payload: id
+        })
+    }
+
+
     editMovie = () => {
         this.props.dispatch({
             type: 'EDIT_MOVIE',
@@ -19,12 +34,14 @@ class Details extends Component {
 
     // Renders the entire app on the DOM
     render() {
+        console.log(this.props.reduxState.genres);
         return (
             <div className="App">
                 <h3>{this.props.reduxState.seeMovie.movie.movie.title}</h3>
                 <p>{this.props.reduxState.seeMovie.movie.movie.description}</p>
                 {/* this should have another map of a film's genres, stored in redux store */}
                 {/* <p>{this.props.reduxState.seeMovie.movie.movie.genres}</p> */}
+                {/* {this.props.reduxState.getGenres. */}
                 <button onClick={this.editMovie}>edit details</button>
                 <button onClick={this.cancelEdit}>back to list</button>
             </div>

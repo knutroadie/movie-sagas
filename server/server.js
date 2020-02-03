@@ -22,7 +22,8 @@ app.get('/movies', (req, res) => {
 
 // app.get for junction table genres
 app.get('/genres', (req, res) => {
-    let queryText = 'SELECT "genres".name FROM "genres" JOIN "movie_genre" ON "genres"."id"="movie_genre"."genre_id" JOIN "movies" ON "movies"."id" = "movie_genre"."movie_id";';
+    let thisMovie = (req.body.id)
+    let queryText = `SELECT "genres".name FROM "genres" JOIN "movie_genre" ON "genres"."id"="movie_genre"."genre_id" JOIN "movies" ON "movies"."id" = "movie_genre"."movie_id" WHERE "movie".id = ${thisMovie};`;
     console.log(queryText);
     pool.query(queryText).then(result => {
         res.send(result.rows)
