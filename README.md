@@ -1,9 +1,7 @@
-# Project Name
+# Movie List
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+This project is a single page application list of films. The user is able to see movies that exist in the DB and see a detailed view for each individual movie, including genres associated with that movie. Users can also edit a movie's information.
 
 ## Description
 
-Your project description goes here. What problem did you solve? How did you solve it?
-
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+This project was built using JavaScript's React.js framework, utilizing the Redux extension along with a server and database.
